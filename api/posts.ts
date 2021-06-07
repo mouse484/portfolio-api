@@ -17,7 +17,6 @@ export default async (_: VercelRequest, response: VercelResponse) => {
     await Promise.all(
       feeds.map(async (url) => {
         const feed = await parser.parseURL(url);
-        console.log(feed.feedUrl, feed.items);
         return feed.items;
       })
     )
