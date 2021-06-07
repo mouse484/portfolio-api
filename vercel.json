@@ -1,3 +1,14 @@
 {
-  "rewrites": [{ "source": "/:name", "destination": "/api/:name" }]
+  "rewrites": [{ "source": "/:name", "destination": "/api/:name" }],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://portfolio.mouse484.vercel.app"
+        }
+      ]
+    }
+  ]
 }
