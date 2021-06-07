@@ -6,7 +6,7 @@
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://portfolio.mouse484.vercel.app"
+          "value": "*"
         }
       ]
     }
