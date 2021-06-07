@@ -4,8 +4,11 @@
     "vc": "vercel --token $VERCEL_TOKEN"
   },
   "devDependencies": {
-    "vercel": "^23.0.0",
     "@vercel/node": "^1.11.0",
-    "typescript": "^4.3.2"
+    "typescript": "^4.3.2",
+    "vercel": "^23.0.0"
+  },
+  "dependencies": {
+    "rss-parser": "^3.12.0"
   }
 }
