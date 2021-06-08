@@ -8,8 +8,12 @@ const feeds = [
 
 const parser = new Parser();
 
-const isPlatform = (link: string) => {
+const isPlatform = (link = '') => {
   return ['qiita', 'zenn'].find((value) => link.includes(value));
+};
+
+const getDate = (isoData = '') => {
+  return new Date(isoData).getTime();
 };
 
 export default async (_: VercelRequest, response: VercelResponse) => {
@@ -23,17 +27,13 @@ export default async (_: VercelRequest, response: VercelResponse) => {
   ).flat();
 
   const result = allfeed
-    .sort(
-      (a, b) =>
-        new Date(b?.isoDate || '').getTime() -
-        new Date(a?.isoDate || '').getTime()
-    )
+    .sort((a, b) => getDate(b.isoDate) - getDate(a.isoDate))
     .map(({ title, link, isoDate }) => {
       return {
         title,
         link,
         isoDate,
-        platform: isPlatform(link || ''),
+        platform: isPlatform(link),
       } as const;
     });
 
